@@ -3,4 +3,5 @@ QT += core gui widgets webenginewidgets
 TARGET = fwtest
 TEMPLATE = app
 
-SOURCES += fwtest.cpp
+HEADERS += FocusWidget.h
+SOURCES += FocusWidget.cpp fwtest.cpp

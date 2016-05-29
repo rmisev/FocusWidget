@@ -2,6 +2,7 @@
 #include <QListWidget>
 #include <QSplitter>
 #include <QWebEngineView>
+#include "FocusWidget.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,8 +18,11 @@ int main(int argc, char *argv[])
     listWidget->setSelectionMode(QAbstractItemView::SingleSelection);
     page.addWidget(listWidget);
 
+    // add FocusWidget as parent for QWebEngineView
     QWebEngineView* webView = new QWebEngineView;
-    page.addWidget(webView);
+    FocusWidget* focusWidget = new FocusWidget;
+    focusWidget->setChildWidget(webView);
+    page.addWidget(focusWidget);
 
     QObject::connect(listWidget, &QListWidget::currentItemChanged,
         [=](QListWidgetItem *current, QListWidgetItem*){
