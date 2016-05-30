@@ -71,7 +71,7 @@ QSize FocusWidget::sizeHint() const
 
 void FocusWidget::onFocusChanged(QWidget * /*old*/, QWidget *now)
 {
-    if (childWidget && childWidget->isEnabled()) {
+    if (childWidget && childWidget->isEnabled() && now) {
         for (QWidget *p = now; p != nullptr; p = p->parentWidget()) {
             if (p == childWidget) return;
         }
