@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     page.addWidget(focusWidget);
 
     QObject::connect(listWidget, &QListWidget::currentItemChanged,
-        [=](QListWidgetItem *current, QListWidgetItem*){
+        [webView](QListWidgetItem *current, QListWidgetItem*){
             if (current) {
                 webView->load(current->text());
             } else {
