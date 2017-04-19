@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QListWidget>
 #include <QSplitter>
+#include <QWebEngineSettings>
 #include <QWebEngineView>
 
 int main(int argc, char *argv[])
@@ -18,6 +19,7 @@ int main(int argc, char *argv[])
     page.addWidget(listWidget);
 
     QWebEngineView* webView = new QWebEngineView;
+    webView->settings()->setAttribute(QWebEngineSettings::FocusOnNavigationEnabled, false);
     page.addWidget(webView);
 
     QObject::connect(listWidget, &QListWidget::currentItemChanged,
